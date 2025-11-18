@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf9f6;
+  --foreground: #ffffff;
+  --emerald-green: #ffffff;
+  --soft-gold: #ffffff;
+  --light-ivory: #ffffff;
+  --warm-beige: #ffffff;
+  --deep-forest: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-emerald-green: var(--emerald-green);
+  --color-soft-gold: var(--soft-gold);
+  --color-light-ivory: var(--light-ivory);
+  --color-warm-beige: var(--warm-beige);
+  --color-deep-forest: var(--deep-forest);
+  --font-sans: var(--font-plus-jakarta);
+  --font-display: var(--font-playfair);
+}
+
+body {
+  background: var(--light-ivory);
+  color: var(--deep-forest);
+  font-family: var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-playfair), serif;
+}
+
+/* Batik pattern overlay (subtle background with green/gold) */
+.batik-pattern {
+  background-image: radial-gradient(
+      circle at 20% 50%,
+      rgba(4, 120, 87, 0.03) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(234, 179, 8, 0.03) 0%,
+      transparent 50%
+    ),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23047857' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 200px 200px, 200px 200px, 60px 60px;
+}
+
+/* Gold divider */
+.gold-divider {
+  border-top: 1px solid rgba(234, 179, 8, 0.2);
+}
+
+/* Button gradient styles */
+.btn-primary {
+  background: linear-gradient(135deg, #047857 0%, #059669 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(4, 120, 87, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #059669 0%, #eab308 100%);
+  box-shadow: 0 4px 16px rgba(234, 179, 8, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Gold glow effect */
+.gold-glow {
+  transition: all 0.3s ease;
+}
+
+.gold-glow:hover {
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.4);
+}
+
+/* Gold underline transition */
+.gold-underline {
+  position: relative;
+}
+
+.gold-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #047857, #eab308);
+  transition: width 0.3s ease;
+}
+
+.gold-underline:hover::after {
+  width: 100%;
+}
+
+/* Floating animation for ornaments (subtle) */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+}
+
+.float-animation {
+  animation: float 8s ease-in-out infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, transform, opacity,
+    box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}

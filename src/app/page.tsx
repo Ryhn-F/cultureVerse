@@ -3,27 +3,29 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-black">
       <Hero />
 
       {/* Features Section */}
-      <section className="py-20 "
-       >
+      <section className="py-20 elegant-grid">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 fade-in">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-[#065F46]">
-              Experience Indonesia Like Never Before
+            <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
+              <span className="elegant-text">
+                Experience Indonesia Like Never Before
+              </span>
             </h2>
-            <p className="text-xl text-[#065F46]/70 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Combining cutting-edge technology with rich cultural heritage
             </p>
+            <div className="mt-8 elegant-divider w-32 mx-auto"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-[#F5F5DC] rounded-2xl shadow-md gold-glow border border-[#EAB308]/10">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#047857] to-[#059669] rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="glass-card p-8 text-center group">
+              <div className="w-16 h-16 bg-gradient-to-br from-white to-gray-300 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
                 <svg
-                  className="w-8 h-8 text-white"
+                  className="w-8 h-8 text-black"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -36,19 +38,20 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-display font-bold text-[#065F46] mb-3">
+              <h3 className="text-2xl font-display font-bold text-white mb-4">
                 360° VR Tours
               </h3>
-              <p className="text-[#065F46]/70">
+              <p className="text-gray-300">
                 Immerse yourself in ancient temples, pristine lakes, and
                 cultural landmarks with interactive hotspots
               </p>
+              <div className="mt-6 w-0 h-0.5 bg-gradient-to-r from-white to-gray-400 group-hover:w-full transition-all duration-500 mx-auto"></div>
             </div>
 
-            <div className="text-center p-8 bg-[#F5F5DC] rounded-2xl shadow-md gold-glow border border-[#EAB308]/10">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#EAB308] to-[#FCD34D] rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="glass-card p-8 text-center group">
+              <div className="w-16 h-16 bg-gradient-to-br from-white to-gray-300 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
                 <svg
-                  className="w-8 h-8 text-white"
+                  className="w-8 h-8 text-black"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -61,19 +64,20 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-display font-bold text-[#065F46] mb-3">
+              <h3 className="text-2xl font-display font-bold text-white mb-4">
                 AI Batik Studio
               </h3>
-              <p className="text-[#065F46]/70">
+              <p className="text-gray-300">
                 Generate unique batik patterns using AI and preview them on 3D
                 clothing models before ordering
               </p>
+              <div className="mt-6 w-0 h-0.5 bg-gradient-to-r from-white to-gray-400 group-hover:w-full transition-all duration-500 mx-auto"></div>
             </div>
 
-            <div className="text-center p-8 bg-[#F5F5DC] rounded-2xl shadow-md gold-glow border border-[#EAB308]/10">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#047857] to-[#EAB308] rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="glass-card p-8 text-center group">
+              <div className="w-16 h-16 bg-gradient-to-br from-white to-gray-300 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
                 <svg
-                  className="w-8 h-8 text-white"
+                  className="w-8 h-8 text-black"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -86,41 +90,43 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-display font-bold text-[#065F46] mb-3">
+              <h3 className="text-2xl font-display font-bold text-white mb-4">
                 Cultural Connection
               </h3>
-              <p className="text-[#065F46]/70">
+              <p className="text-gray-300">
                 Connect with local artisans and preserve traditional
                 craftsmanship through modern technology
               </p>
+              <div className="mt-6 w-0 h-0.5 bg-gradient-to-r from-white to-gray-400 group-hover:w-full transition-all duration-500 mx-auto"></div>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#047857] via-[#059669] to-[#047857] text-white">
+      <section className="py-20 bg-gradient-to-r from-gray-900 via-black to-gray-900 scan-lines">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-            Ready to Explore?
+          <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
+            <span className="elegant-text">Ready to Explore?</span>
           </h2>
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-xl text-gray-300 mb-8">
             Start your journey through Indonesia&apos;s cultural heritage today
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link
               href="/tour"
-              className="px-8 py-4 bg-white text-[#047857] font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+              className="elegant-button px-8 py-4 font-semibold rounded-full text-lg"
             >
               Explore Destinations
             </Link>
             <Link
               href="/studio"
-              className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full border-2 border-white hover:bg-white hover:text-[#047857] transition-all duration-300"
+              className="elegant-button-outline px-8 py-4 rounded-full font-medium text-lg"
             >
               Try AI Studio
             </Link>
           </div>
+          <div className="mt-12 elegant-divider w-64 mx-auto"></div>
         </div>
       </section>
     </main>

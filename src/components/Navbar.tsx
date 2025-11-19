@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const isHomepage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,107 +18,119 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isHomepage ? scrolled ? "bg-[#FFFFFF] backdrop-blur-md shadow-md" :"bg-transparent" 
-        
-          : "bg-[#FFFFFF] backdrop-blur-md "
-         
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "glass-dark shadow-lg shadow-white/10" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto  ">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
           <Link
             href="/"
-            className={`text-2xl md:text-3xl font-display font-bold ${isHomepage ? scrolled ? "text-black" :"text-white" 
-        
-          : "text-black"
-         }`}
+            className="text-2xl md:text-3xl font-display font-bold relative group"
           >
-            CultureVerse
+            <span className="elegant-text">CultureVerse</span>
+            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-white to-gray-400 group-hover:w-full transition-all duration-300"></div>
           </Link>
 
-          <div className="hidden md:flex items-center space-x-3 rounded-full bg-white/20 px-2 py-2 backdrop-blur-2xl">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-2 glass-dark rounded-full px-3 py-2.5">
             <Link
               href="/"
-              className={`transition-colors px-5 py-2 font-medium ${
-                pathname === "/" 
-                  ? "bg-white  text-black rounded-full  font-semibold" 
-                  : "text-gray-800 hover:text-black"
+              className={`relative px-6 py-2.5 font-medium transition-all duration-300 rounded-full ${
+                pathname === "/"
+                  ? "bg-white text-black shadow-lg shadow-white/30"
+                  : "text-gray-300 hover:text-white"
               }`}
             >
               Home
+              {pathname === "/" && (
+                <span className="absolute inset-0 rounded-full bg-white opacity-20 blur-md"></span>
+              )}
             </Link>
             <Link
               href="/tour"
-              className={`transition-colors font-medium px-5 py-2 ${
-                pathname.startsWith("/tour") 
-                  ? " font-semibold text-black rounded-full  " 
-                  :isHomepage  ? scrolled ? "text-gray-800 hover:text-black"  :"text-white/70 hover:text-white" : "text-gray-800 hover:text-black"
+              className={`relative px-6 py-2.5 font-medium transition-all duration-300 rounded-full ${
+                pathname.startsWith("/tour")
+                  ? "bg-white text-black shadow-lg shadow-white/30"
+                  : "text-gray-300 hover:text-white"
               }`}
             >
               Destinations
+              {pathname.startsWith("/tour") && (
+                <span className="absolute inset-0 rounded-full bg-white opacity-20 blur-md"></span>
+              )}
             </Link>
             <Link
               href="/studio"
-              className={`transition-colors font px-5 py-2 font-medium ${
-                pathname === "/studio" 
-                  ? " font-semibold text-black rounded-full  " 
-                  :isHomepage  ? scrolled ? "text-gray-800 hover:text-black":"text-white/70 hover:text-white" : "text-gray-800 hover:text-black"
+              className={`relative px-6 py-2.5 font-medium transition-all duration-300 rounded-full ${
+                pathname === "/studio"
+                  ? "bg-white text-black shadow-lg shadow-white/30"
+                  : "text-gray-300 hover:text-white"
               }`}
             >
               AI Studio
+              {pathname === "/studio" && (
+                <span className="absolute inset-0 rounded-full bg-white opacity-20 blur-md"></span>
+              )}
             </Link>
             <Link
               href="/about"
-              className={`transition-colors font px-5 py-2 font-medium ${
-                pathname === "/about" 
-                  ? " font-semibold text-black rounded-full  " 
-                  :isHomepage  ?   scrolled ? "text-gray-800 hover:text-black" : "text-white/70 hover:text-white" : "text-gray-800 hover:text-black"
+              className={`relative px-6 py-2.5 font-medium transition-all duration-300 rounded-full ${
+                pathname === "/about"
+                  ? "bg-white text-black shadow-lg shadow-white/30"
+                  : "text-gray-300 hover:text-white"
               }`}
             >
               About
+              {pathname === "/about" && (
+                <span className="absolute inset-0 rounded-full bg-white opacity-20 blur-md"></span>
+              )}
             </Link>
           </div>
 
-          <div className="flex space-x-3">  
-            <Link 
+          {/* Auth Buttons */}
+          <div className="hidden md:flex items-center space-x-3">
+            <Link
               href="/login"
-          className={`px-6 py-3 rounded-full bg-white/20 ${isHomepage  ?   scrolled ? "text-gray-800 hover:text-black" : "text-white/70 hover:text-white" : "text-gray-800 hover:text-black"}  font-medium border border-white/50 backdrop-blur-2xl`}>
+              className="px-6 py-2.5 rounded-full glass-dark border border-white/20 text-white font-medium hover:border-white hover:shadow-lg hover:shadow-white/20 transition-all duration-300"
+            >
               Login
             </Link>
-            <Link 
+            <Link
               href="/sign-up"
-          className="px-6 py-3 rounded-full bg-white text-gray-800 hover:text-black font-medium border border-white/50 backdrop-blur-2xl">
+              className="elegant-button px-6 py-2.5 rounded-full font-medium"
+            >
               Sign Up
             </Link>
-
           </div>
 
-        
-
-          <div className="md:hidden">
-            <button 
-              className="text-[#065F46] hover:text-[#047857] transition-colors"
-              aria-label="Open menu"
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2 rounded-lg glass-dark border border-white/20 text-white hover:border-white transition-all duration-300"
+            aria-label="Open menu"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          </div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Decorative Line */}
+      {scrolled && (
+        <div className="absolute bottom-0 left-0 right-0 elegant-divider"></div>
+      )}
     </nav>
   );
 }
-

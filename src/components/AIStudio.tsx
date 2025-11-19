@@ -29,7 +29,11 @@ function ClothingModel({ textureUrl, clothingType }: ClothingModelProps) {
 
   // Map clothing types to model files
   const modelPath =
-    clothingType === "kebaya" ? "/models/kebaya.glb" : "/models/kemeja.glb"; // Use kemeja for both shirt and dress
+    clothingType === "kebaya"
+      ? "/models/kebaya.glb"
+      : clothingType === "dress"
+      ? "/models/dress.glb"
+      : "/models/kemeja.glb"; // Use kemeja for both shirt and dress
 
   const { scene } = useGLTF(modelPath);
 
@@ -294,7 +298,7 @@ IMPORTANT: Create a seamless texture that can be tiled/repeated without visible 
       </div>
 
       {/* Sidebar - 25% width on desktop, full on mobile */}
-      <div className="lg:w-1/4 w-full lg:min-w-[350px] bg-gray-800 border-l rounded-2xl drop-shadow-lg drop-shadow-white/20 border-gray-700 lg:border-l-0 flex flex-col">
+      <div className="lg:w-1/4 w-full lg:min-w-[350px] bg-gray-800 border-l border-gray-700 lg:border-l-0 flex flex-col rounded-2xl drop-shadow-md drop-shadow-white/10">
         <div className="p-6 border-b border-gray-700">
           <h2 className="text-xl font-bold text-white mb-2">AI Batik Studio</h2>
           <p className="text-gray-300 text-sm">
